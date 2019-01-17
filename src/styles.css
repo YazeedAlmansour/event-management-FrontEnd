@@ -1,0 +1,87 @@
+/* You can add global styles to this file, and also import other style files */
+@import "assets/forms.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-container > * {
+  width: 100%;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .navbar {
+    height: 100px !important;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .navbar {
+    height: 100px !important;
+  }
+}
+
+
+.img-responsive2 {
+  display: inline-block;
+  max-width: 30%;
+  height: auto;
+}
+
+
+.btn-sample {
+  color: #FFFFFF;
+  background-color: #262626;
+  border-color: #FFFFFF;
+}
+
+.btn-sample:hover,
+.btn-sample:focus,
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  color: #FFFFFF;
+  background-color: #A6A6A6;
+  border-color: #FFFFFF;
+}
+
+.btn-sample:active,
+.btn-sample.active,
+.open .dropdown-toggle.btn-sample {
+  background-image: none;
+}
+
+.btn-sample.disabled,
+.btn-sample[disabled],
+fieldset[disabled] .btn-sample,
+.btn-sample.disabled:hover,
+.btn-sample[disabled]:hover,
+fieldset[disabled] .btn-sample:hover,
+.btn-sample.disabled:focus,
+.btn-sample[disabled]:focus,
+fieldset[disabled] .btn-sample:focus,
+.btn-sample.disabled:active,
+.btn-sample[disabled]:active,
+fieldset[disabled] .btn-sample:active,
+.btn-sample.disabled.active,
+.btn-sample[disabled].active,
+fieldset[disabled] .btn-sample.active {
+  background-color: #262626;
+  border-color: #FFFFFF;
+}
+
+.btn-sample .badge {
+  color: #262626;
+  background-color: #FFFFFF;
+}

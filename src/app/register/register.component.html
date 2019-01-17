@@ -1,0 +1,109 @@
+<app-navbar></app-navbar>
+<H1>Register</H1>
+  <div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+    <form novalidate [formGroup]="myForm">
+
+      <div class="form-group">
+        <label class="control-label" for="userid">Enter Your NIN / IQAMA</label>
+        <input type="userid" class="form-control"
+               formControlName="userid"
+               id="userid" placeholder="Enter your ID" name="userid">
+        <div *ngIf="myForm.controls.userid.invalid && myForm.controls.userid.dirty" style="color: red"
+        >NIN must be Uniqe, 10 digits, Start with 1 (NIN), start with 2 (IQAMA) and does NOT have symbols or letters</div>
+        <div *ngIf="myForm.controls.userid.valid && myForm.controls.userid.dirty" style="color: green">Success</div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="inputFirstName">Enter First Name</label>
+        <input type="userfname" class="form-control" id="inputFirstName"
+               placeholder="Enter first name" name="userfname"
+               formControlName="userfname">
+        <div *ngIf="myForm.controls.userfname.invalid && myForm.controls.userfname.dirty" style="color: red"
+        >First name must be more than 2 letters and less than 10 letters, doen NOT have numbers or symbols and English letters </div>
+        <div *ngIf="myForm.controls.userfname.valid && myForm.controls.userfname.dirty" style="color: green">Success</div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputLastName">Enter Last Name</label>
+        <input type="userlname" class="form-control" id="inputLastName"
+               placeholder="Enter last name" name="userlname"
+               formControlName="userlname">
+        <div *ngIf="myForm.controls.userlname.invalid && myForm.controls.userlname.dirty" style="color: red"
+        >First name must be more than 2 letters and less than 10 letters, doen NOT have numbers or symbols and English letters </div>
+        <div *ngIf="myForm.controls.userlname.valid && myForm.controls.userlname.dirty" style="color: green">Success</div>
+      </div>
+
+      <div class="form-group">
+        <label for="inputEmail">Email address</label>
+        <input type="useremial" class="form-control" id="inputEmail"
+               placeholder="Enter email" name="useremial"
+               formControlName="useremial">
+        <div *ngIf="myForm.controls.useremial.invalid && myForm.controls.useremial.dirty" style="color: red"
+        >Email must be in the format (xxx@xxx.xxx)</div>
+        <div *ngIf="myForm.controls.useremial.valid && myForm.controls.useremial.dirty" style="color: green">Success</div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="selectGender">Gander</label>
+        <select class="form-control" id="selectGender" formControlName="usergender" name="usergender">
+          <option value="" disabled>Select gander</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <div *ngIf="myForm.controls.usergender.invalid && myForm.controls.usergender.dirty" style="color: red"
+        >You must select your gender</div>
+        <div *ngIf="myForm.controls.usergender.valid && myForm.controls.usergender.dirty" style="color: green">Success</div>
+      </div>
+
+      <div class="form-group">
+        <label for="number">Enter Your phone number</label>
+        <input type="userphone" class="form-control"
+               formControlName="userphone"
+               id="number" placeholder="Enter your phone number" name="number">
+        <div *ngIf="myForm.controls.userphone.invalid && myForm.controls.userphone.dirty" style="color: red"
+        >Phone must be 9 numbers start with 5 and English numbers</div>
+        <div *ngIf="myForm.controls.userphone.valid && myForm.controls.userphone.dirty" style="color: green">Success</div>
+      </div>
+
+      <div class="form-group">
+        <label for="userbirth">Enter DateOfBirth</label>
+        <input type="date" class="form-control"
+               formControlName="userbirth"
+               id="userbirth" name="userbirth">
+        <div *ngIf="myForm.controls.userbirth.invalid && myForm.controls.userbirth.dirty" style="color: red"
+        >You must select your gender</div>
+        <div *ngIf="myForm.controls.userbirth.valid && myForm.controls.userbirth.dirty" style="color: green">Success</div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control"
+               formControlName="password"
+               id="inputPassword" placeholder="Password" name="password">
+        <div *ngIf="myForm.controls.password.invalid && myForm.controls.password.dirty" style="color: red"
+        >Password must be betwwen 8 and 15 digits</div>
+        <div *ngIf="myForm.controls.password.valid && myForm.controls.password.dirty" style="color: green">Success</div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="role">Select Role:</label>
+        <select class="form-control" id="role" formControlName="role" name="role">
+          <option value="" disabled>Select Role</option>
+          <option value="ROLE_USER">USER</option>
+          <option value="ROLE_ORGANIZER">ORGANIZER</option>
+        </select>
+      </div>
+
+
+
+      <div *ngIf=err style="color: red">{{err}}</div>
+
+
+      <button type="submit" class="btn badge-danger"
+              [disabled]="!myForm.valid"(click)="onSubmit()" style="margin-right: 10px">Submit</button>
+    </form>
+  </div>

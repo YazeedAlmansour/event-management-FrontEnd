@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+<div class="container">
+      <h2 style="text-align: center; padding: 30px">Events</h2>
+      <div class="row">
+        <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of events$ " (click)="getEvent(event)">
+          <div class="card h-100">
+            <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]">{{event.eventname}}</a>
+              </h4>
+              <p class="card-text">{{event.eventdate}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-md-6">
+    <h2>Event Tickets</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let ticket of tickets "class="list-group-item">
+        <li class="list-group-item" style="background-color: #A6A6A6">Ticket #: {{ ticket.ticketnumber }}</li>
+        <li class="list-group-item">Date: {{ ticket.ticketdate }}</li>
+        <li class="list-group-item">Event: {{ ticket.eventname }}</li>
+        <div>
+        <button *ngIf="!isConformed(ticket.ticketconformed)" (click)="ConformTicket(ticket.ticketnumber)" class="btn btn-sample" style="margin-right: 10px">Make Attend</button>
+        </div>
+        <div *ngIf="!rated(ticket.rated)">
+        <h4>User Review:</h4>
+        <li class="list-group-item">Rate: {{ ticket.ticketRate }}</li>
+        <li class="list-group-item">Comment: {{ ticket.ticketComment }}</li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

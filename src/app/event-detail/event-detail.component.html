@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+
+
+<div class="container" *ngIf="event$">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4">{{event$.eventname}}</h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="http://placehold.it/750x500" alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3 class="my-3">City</h3>
+      <p>{{event$.eventlocation}}</p>
+      <h3 class="my-3">Date</h3>
+      <p>{{event$.eventdate}}</p>
+      <h3 class="my-3">Time</h3>
+      <p>{{event$.eventtime}}</p>
+      <h3 class="my-3">Capacity</h3>
+      <p>{{event$.eventcapacity}}</p>
+      <h3 class="my-3">Booked Ticket</h3>
+      <p>{{event$.counter}}</p>
+      <div>
+        <button *ngIf="isAdmin()" [disabled]="isApprove()" (click)="approveEvent(event$.eventnumber)" class="btn btn-success" style="margin-right: 10px">Approve</button>
+        <button *ngIf="isAdmin()" [disabled]="!isApprove()" (click)="rejectEvent(event$.eventnumber)" class="btn btn-danger" style="margin-right: 10px">Reject</button>
+        <button *ngIf="isUser()" [disabled]="!bookedTickets()" (click)="book(event$.eventnumber)" class="btn btn-success" style="margin-right: 10px">Book</button>
+        <button routerLink="/approvedEvents" class="btn btn-sample" style="margin-right: 10px">Cancel</button>
+        <div *ngIf="errBook" style="color: red">{{errBook}}</div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <div>
+    <h2>Comments:</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let comment of comments " class="list-group-item">
+        {{comment.comment}}
+      </ul>
+    </div>
+    <form [formGroup]="myForm">
+      <div class="form-group">
+        <input type="comment" class="form-control" id="inputComment"
+               placeholder="Add Comment" name="comment"
+               formControlName="comment">
+      </div>
+      <div *ngIf="myForm.controls.comment.invalid && myForm.controls.comment.dirty" style="color: red"
+      >Comment must more than 2 character</div>
+      <button type="submit" class="btn btn-sample" (click)="addComment()">Send</button>
+      <div *ngIf="errComment" style="color: red">{{errComment}}</div>
+    </form>
+  </div>
+  </div>
+
+  <div>
+
+</div>

@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-md-6">
+    <h2>Users List</h2>
+    <ul style="list-style-type:disc" *ngFor="let user of users$ " class="list-group-item" (click)="getUser(user)">
+    {{user.userid}} - {{user.userfname}} {{user.userlname}} - {{user.usernumber}}
+    </ul>
+  </div>
+
+  <div class="col-md-6">
+    <app-user-detail [user]="currentUser"></app-user-detail>
+  </div>
+
+</div>
+
+

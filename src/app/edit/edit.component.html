@@ -1,0 +1,72 @@
+<app-navbar></app-navbar>
+<H1>Edit</H1>
+<div class="rounded" style="background-color: white; margin: 20px; padding: 20px">
+  <form novalidate [formGroup]="myForm">
+
+    <div class="form-group">
+      <label for="userid">Enter Your ID</label>
+      <input type="number" class="form-control"
+             formControlName="userid"
+             id="userid" placeholder="Enter your ID" name="userid">
+    </div>
+
+    <div class="form-group">
+      <label for="inputFirstName">Enter First Name</label>
+      <input type="userfname" class="form-control" id="inputFirstName"
+             placeholder="Enter first name" name="userfname"
+             formControlName="userfname">
+    </div>
+
+    <div class="form-group">
+      <label for="inputLastName">Enter Last Name</label>
+      <input type="userlname" class="form-control" id="inputLastName"
+             placeholder="Enter last name" name="userlname"
+             formControlName="userlname">
+    </div>
+
+    <div class="form-group">
+      <label for="inputEmail">Email address</label>
+      <input type="email" class="form-control" id="inputEmail"
+             placeholder="Enter email" name="useremial"
+             formControlName="useremial">
+    </div>
+
+    <div class="form-group">
+      <label for="inputPassword">Password</label>
+      <input type="password" class="form-control"
+             formControlName="password"
+             id="inputPassword" placeholder="Password" name="password">
+    </div>
+
+    <div class="form-group">
+      <label for="selectGender">Gander</label>
+      <select class="form-control" id="selectGender" formControlName="usergender" name="usergender">
+        <option value="" disabled>Select gander</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="userphone">Enter Your phone number</label>
+      <input type="number" class="form-control"
+             formControlName="userphone"
+             id="userphone" placeholder="Enter your phone number" name="userphone">
+    </div>
+    <div class="form-group">
+      <label for="userbirth">Enter DateOfBirth</label>
+      <input type="date" class="form-control"
+             formControlName="userbirth"
+             id="userbirth" placeholder="Enter your phone number" name="userbirth">
+    </div>
+
+
+
+
+    <button type="submit" class="btn btn-sample"
+            (click)="onSubmit()" style="margin-right: 10px">Submit</button>
+
+    <button type="submit" class="btn btn-danger"
+            (click)="deleteUser()">Delete</button>
+  </form>
+</div>

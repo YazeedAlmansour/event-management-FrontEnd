@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container">
+  <!-- Team Members Row -->
+  <div class="row" *ngIf="user">
+    <div class="col-lg-12">
+      <h2 class="my-4">My Profile</h2>
+    </div>
+    <div class="col-lg-4 col-sm-6 text-center mb-4">
+      <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
+      <h3>{{user.userfname}} {{user.userlname}}</h3>
+    </div>
+    <div class="col-lg-6 col-sm-6 text-center mb-4">
+      <ul class="list-group">
+        <li class="list-group-item">ID: {{ user.userid }}</li>
+        <li class="list-group-item">Email: {{ user.useremial }}</li>
+        <li class="list-group-item">Gender: {{ user.usergender }}</li>
+        <li class="list-group-item">Phone: {{ user.userphone }}</li>
+        <li class="list-group-item">Date of birth: {{ user.userbirth }}</li>
+        <td>
+          <button [routerLink]="['/user', user.usernumber]" class="btn btn-sample" style="margin-top: 10px">Edit</button>
+        </td>
+      </ul>
+    </div>
+  </div>
+</div>

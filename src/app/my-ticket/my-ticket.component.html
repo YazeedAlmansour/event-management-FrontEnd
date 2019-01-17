@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<div class="row" >
+  <div class="col-md-6">
+    <h2>My Tickets</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let ticket of tickets "class="list-group-item">
+        <li class="list-group-item">Ticket #: {{ ticket.ticketnumber }}</li>
+        <li class="list-group-item">Event Name: {{ ticket.eventname }}</li>
+        <li class="list-group-item">Date: {{ ticket.ticketdate }}</li>
+        <li class="list-group-item">Time: {{ ticket.eventtime }}</li>
+        <button type="submit" class="btn btn-danger"
+                (click)="deleteTicket(ticket.ticketnumber)">Delete</button></ul>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h2>Attended Tickets</h2>
+    <div>
+      <ul style="list-style-type:disc" *ngFor="let ticket2 of tickets$ "class="list-group-item">
+        <li class="list-group-item">Ticket #: {{ ticket2.ticketnumber }}</li>
+        <li class="list-group-item">Event Name: {{ ticket2.eventname }}</li>
+        <div *ngIf="rated(ticket2.rated)">
+        <h2>Review:</h2>
+          <ul (click)="getReview(ticket2.ticketnumber)" style="list-style-type:disc">
+          </ul>
+        <form [formGroup]="myForm">
+          <div class="form-group">
+            <input type="reviewcommet" class="form-control" id="inputComment"
+                   placeholder="Add Comment" name="reviewcommet"
+                   formControlName="reviewcommet">
+          </div>
+          <div class="form-group">
+            <label for="selectRate">Rate</label>
+            <select class="form-control" id="selectRate" formControlName="reviewrate" name="reviewrate">
+              <option value="" disabled>Select Rate</option>
+              <option value=1>1</option>
+              <option value=2>2</option>
+              <option value=3>3</option>
+              <option value=4>4</option>
+              <option value=5>5</option>
+            </select>
+          </div>
+          <button (click)="addReview(ticket2.ticketnumber)" [disabled]="!rated(ticket2.rated)"type="submit" class="btn btn-success">Rate</button>
+        </form>
+        </div>
+      </ul>
+    </div>
+
+    <div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!--<div class="ticket" *ngFor="let ticket of tickets ">-->
+  <!--<div class="check">-->
+    <!--<div class="big">-->
+      <!--{{ticket.eventname}}-->
+    <!--</div>-->
+    <!--&lt;!&ndash;<div class="number">#{{ticket.ticketnumber}}</div>&ndash;&gt;-->
+    <!--<div class="info">-->
+      <!--<section>-->
+        <!--<div class="title">Date</div>-->
+        <!--<div>{{ticket.ticketdate}}</div>-->
+      <!--</section>-->
+      <!--<section>-->
+        <!--<div class="title">Time</div>-->
+        <!--<div>{{ticket.eventtime}}</div>-->
+      <!--</section>-->
+      <!--<section>-->
+        <!--<div class="title">Ticket Number</div>-->
+        <!--<div>{{ticket.ticketnumber}}</div>-->
+      <!--</section>-->
+    <!--</div>-->
+    <!--<button type="submit" class="btn btn-danger buttond"-->
+            <!--(click)="deleteTicket(ticket.ticketnumber)">Delete</button>-->
+  <!--</div>-->
+<!--</div>-->
+
+
+
+
