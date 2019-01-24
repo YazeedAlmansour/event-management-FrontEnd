@@ -27,6 +27,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule, MatInputModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FooterComponent } from './footer/footer.component';
+import { SearchEventPipe } from './search-event.pipe';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     EventNotapproveComponent,
     MyProfileComponent,
     NavbarComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent,
+    SearchEventPipe
   ],
   imports: [
     BrowserModule,

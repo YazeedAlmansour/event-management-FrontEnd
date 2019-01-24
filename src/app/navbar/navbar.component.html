@@ -13,20 +13,17 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="admin" routerLink="/users">Users List</a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="admin" routerLink="/events">All Events</a></li>
-        <li class="nav-item"><a class="nav-link" routerLink="/approvedEvents">Events List</a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="org" routerLink="/createEvent">Create Event</a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="org" routerLink="/myevent">My Event</a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="usr" routerLink="/myticket">My Tickets</a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="isLogged()" routerLink="/myprofile">My Profile</a></li>
-        <li class="nav-item"><a class="nav-link" *ngIf="!isLogged()" routerLink="/login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/home">Home | <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="admin" routerLink="/users">Users List | </a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="admin" routerLink="/events">All Events |</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/approvedEvents">Events List |</a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="org" routerLink="/createEvent">Create Event |</a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="org" routerLink="/myevent">My Event |</a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="usr" routerLink="/myticket">My Tickets |</a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="isLogged()" routerLink="/myprofile">My Profile |</a></li>
+        <li class="nav-item"><a class="nav-link" *ngIf="!isLogged()" routerLink="/login">Login |</a></li>
         <li class="nav-item"><a class="nav-link" *ngIf="isLogged()"(click)="logout()" routerLink="/login">Logout</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-
-
-

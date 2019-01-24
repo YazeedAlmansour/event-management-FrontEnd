@@ -6,21 +6,39 @@
     <div class="col-lg-12">
       <h2 class="my-4">My Profile</h2>
     </div>
-    <div class="col-lg-4 col-sm-6 text-center mb-4">
-      <img class="rounded-circle img-fluid d-block mx-auto" src="http://placehold.it/200x200" alt="">
-      <h3>{{user.userfname}} {{user.userlname}}</h3>
+    <div class="col-md-4">
+      <img class="rounded-circle img-fluid d-block mx-auto" src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" alt="">
+      <h3 style="text-align: center">{{user.userfname}} {{user.userlname}}</h3>
     </div>
-    <div class="col-lg-6 col-sm-6 text-center mb-4">
-      <ul class="list-group">
-        <li class="list-group-item">ID: {{ user.userid }}</li>
-        <li class="list-group-item">Email: {{ user.useremial }}</li>
-        <li class="list-group-item">Gender: {{ user.usergender }}</li>
-        <li class="list-group-item">Phone: {{ user.userphone }}</li>
-        <li class="list-group-item">Date of birth: {{ user.userbirth }}</li>
-        <td>
-          <button [routerLink]="['/user', user.usernumber]" class="btn btn-sample" style="margin-top: 10px">Edit</button>
-        </td>
-      </ul>
+    <div class="col-md-8">
+      <table class="table table-user-information">
+        <tbody>
+        <tr>
+          <td>User ID:</td>
+          <td>{{user.userid}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{user.useremial}}</td>
+        </tr>
+        <tr>
+          <td>Phone Number</td>
+          <td>{{user.userphone}}</td>
+        </tr>
+        <tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{user.usergender}}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth</td>
+          <td>{{user.userbirth}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button [routerLink]="['/user', user.usernumber]" class="btn btn-sample" style="margin-top: 10px">Edit</button>
     </div>
   </div>
 </div>
+<app-footer></app-footer>
+

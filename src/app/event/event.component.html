@@ -1,11 +1,13 @@
 <app-navbar></app-navbar>
-
 <div class="container">
   <h2 style="text-align: center; padding: 30px">Waiting to be approved</h2>
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm"/>
+  </div>
   <div class="row">
-    <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of event$ " (click)="getEvent(event)">
+    <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of event$ | searchEvent:searchTerm" (click)="getEvent(event)">
       <div class="card h-100">
-        <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="https://cdn1.imggmi.com/uploads/2019/1/24/8b8a20cb4220c99ad22a8e1fe93e663a-full.jpg" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]">{{event.eventname}}</a>
@@ -20,10 +22,13 @@
 
 <div class="container">
   <h2 style="text-align: center; padding: 30px">All Events</h2>
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="searchTerm"/>
+  </div>
   <div class="row">
-    <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of events$ " (click)="getEvent(event)">
+    <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of events$ | searchEvent:searchTerm" (click)="getEvent(event)">
       <div class="card h-100">
-        <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+        <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="https://cdn1.imggmi.com/uploads/2019/1/24/8b8a20cb4220c99ad22a8e1fe93e663a-full.jpg" alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
             <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]">{{event.eventname}}</a>

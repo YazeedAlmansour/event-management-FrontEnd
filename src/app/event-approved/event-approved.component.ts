@@ -6,11 +6,12 @@ import {EventService} from '../event/event.service';
 @Component({
   selector: 'app-event-approved',
   templateUrl: './event-approved.component.html',
-  styleUrls: ['./event-approved.component.css']
+  styleUrls: ['./event-approved.component.css'],
 })
 export class EventApprovedComponent implements OnInit {
 
   events$: Events[];
+  searchTerm: string;
 
   constructor(private route: ActivatedRoute, private eventService: EventService) { }
 
