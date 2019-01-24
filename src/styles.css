@@ -3,13 +3,38 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+
+
+/*html,body{*/
+  /*background-image: url('https://cdn1.imggmi.com/uploads/2019/1/23/35eb798342b5ac98c7eea091d8976c26-full.png');*/
+  /*background-color: black;*/
+  /*background-size: 600px;*/
+  /*background-repeat: no-repeat;*/
+  /*height: 100%;*/
+  /*font-family: 'Numans', sans-serif;*/
+/*}*/
+
+
+
+#wrap
+{
+  min-height: 100%;
+}
+
+#main
+{
+  overflow:auto;
+  padding-bottom:150px; /* this needs to be bigger than footer height*/
+}
+
+
 html, body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-}
+/*body {*/
+  /*margin: 0;*/
+/*}*/
 
 .example-container {
   display: flex;

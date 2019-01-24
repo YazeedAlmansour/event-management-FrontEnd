@@ -12,8 +12,7 @@ export class EventComponent implements OnInit {
 
   events$: Events[];
   event$: Events[];
-  currentEvent: Events;
-
+  searchTerm: string;
 
   constructor(private route: ActivatedRoute, private eventService: EventService) { }
 

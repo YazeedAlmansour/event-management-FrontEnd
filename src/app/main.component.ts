@@ -6,13 +6,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-main',
   template: `
-    <div class="container-fluid" style="text-align: center">
-      <div style="text-align: left">
       <router-outlet></router-outlet>
-      </div>
-      <hr>
-      <div class="text-sm-center" style="text-align: center"> © 2018 Yazeed Al-Mansour All Rights Reserved</div>
-    </div>
   `
 })
 export class MainComponent implements OnInit {
