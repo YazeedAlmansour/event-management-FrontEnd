@@ -1,7 +1,7 @@
 .img-responsive2 {
   /*display: inline-block;*/
-  max-width: 170px;
-  max-height: 170px;
+  max-width: 150px;
+  max-height: 150px;
 }
 
 
@@ -12,12 +12,19 @@
 /*
 
  */
+@media only screen and (min-width: 768px) {
+  .navbar {
+    height: 75px !important;
+  }
+}
+
+
 .navbar {
-  background-color: #1e1656;
+  background-color: #563f7b;
   /*min-height:300px;*/
   /*max-height: 80px;*/
-  box-shadow: 10px 10px 10px #bebebe;
-  margin-bottom: 20px;
+  /*box-shadow: 5px 5px 5px 5px #bebebe;*/
+  margin-bottom: 10px;
 }
 
 .navbar .navbar-nav .nav-link {

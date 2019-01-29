@@ -46,16 +46,6 @@ html, body {
 }
 
 
-@media only screen and (min-width: 600px) {
-  .navbar {
-    height: 100px !important;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .navbar {
-    height: 100px !important;
-  }
-}
 
 
 .img-responsive2 {
