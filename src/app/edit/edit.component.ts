@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../user/user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {User} from '../user/user.model';
+import {AuthenticationService} from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-edit',
@@ -13,13 +14,18 @@ export class EditComponent implements OnInit {
   usernumber: number;
   user$: User;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService,
+              private route: ActivatedRoute, private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.route.params.subscribe((value: any) => {
       this.usernumber = value.usernumber;
     });
 
+    if (this.usernumber != this.auth.getUserNumber()){
+      this.router.navigate(['/myprofile']);
+      alert('This is NOT your profile');
+    }
 
     this.userService.getUser(this.usernumber).subscribe((value0 => {
       this.user$ = value0;

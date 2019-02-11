@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Events} from '../event/event.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {EventService} from '../event/event.service';
+import {AuthenticationService} from '../authentication/authentication.service';
 
 @Component({
   selector: 'app-edit-event',
@@ -17,7 +18,7 @@ export class EditEventComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private eventService: EventService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router, private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.route.params.subscribe((value: any) => {
@@ -26,9 +27,13 @@ export class EditEventComponent implements OnInit {
 
     this.eventService.getEvent(this.eventnumber).subscribe((value0 => {
       this.event$ = value0;
+      if (this.event$.orgid != this.auth.getUserNumber()) {
+        this.router.navigate(['/myevent']);
+        alert('This is NOT your event');
+      }
       this.myForm.patchValue(this.event$ as any);
+      console.log(this.event$.orgid);
     }));
-
     this.myForm = this.formBuilder.group({
       eventname: ['', Validators.required],
       eventlocation: ['', Validators.required],
@@ -44,7 +49,7 @@ export class EditEventComponent implements OnInit {
       if (res !== null && res !== undefined) {
         console.log(res);
       }
-    }, (error) => console.log(error), () => {this.router.navigate(['/myevent']);});
+    }, (error) => console.log(error), () => {this.router.navigate(['/myevent']); });
   }
 
   deleteEvent() {

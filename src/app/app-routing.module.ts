@@ -21,19 +21,19 @@ import {MyProfileComponent} from './my-profile/my-profile.component';
 const routes: Routes = [
   {path: '', component: AppComponent, canActivate: [AuthGuard]},
   {path: 'home', component: AppComponent},
-  {path: 'users', component: UserComponent},
+  {path: 'users', component: UserComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ADMIN']}},
   {path: 'user/:usernumber', component: EditComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'events', component: EventComponent},
+  {path: 'events', component: EventComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ADMIN']}},
   {path: 'event/:eventnumber', component: EventDetailComponent},
-  {path: 'notApprovedEvents', component: EventNotapproveComponent},
-  {path: 'createEvent', component: CreateEventComponent},
+  {path: 'notApprovedEvents', component: EventNotapproveComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ADMIN']}},
+  {path: 'createEvent', component: CreateEventComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ORGANIZER']}},
   {path: 'myevent', component: MyEventComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ORGANIZER']}},
-  {path: 'editEvent/:eventnumber', component: EditEventComponent},
-  {path: 'eventTicket/:eventnumber', component: EventTicketComponent},
+  {path: 'editEvent/:eventnumber', component: EditEventComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ORGANIZER']}},
+  {path: 'eventTicket/:eventnumber', component: EventTicketComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_ORGANIZER']}},
   {path: 'approvedEvents', component: EventApprovedComponent},
-  {path: 'myticket', component: MyTicketComponent},
+  {path: 'myticket', component: MyTicketComponent, canActivate: [AuthGuard], data: { userRole : ['ROLE_USER']}},
   {path: 'myprofile', component: MyProfileComponent}
 ];
 

@@ -12,6 +12,7 @@ export class EventApprovedComponent implements OnInit {
 
   events$: Events[];
   searchTerm: string;
+  searchCity: string;
 
   constructor(private route: ActivatedRoute, private eventService: EventService) { }
 

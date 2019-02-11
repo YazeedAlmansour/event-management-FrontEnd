@@ -29,6 +29,7 @@ import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FooterComponent } from './footer/footer.component';
 import { SearchEventPipe } from './search-event.pipe';
+import { FilterCityPipe } from './filter-city.pipe';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { SearchEventPipe } from './search-event.pipe';
     NavbarComponent,
     NavComponent,
     FooterComponent,
-    SearchEventPipe
+    SearchEventPipe,
+    FilterCityPipe
   ],
   imports: [
     BrowserModule,

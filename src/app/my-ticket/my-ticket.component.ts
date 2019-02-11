@@ -67,7 +67,7 @@ export class MyTicketComponent implements OnInit {
       data => {
       },
       err => console.log(err),
-      () => console.log('Review Added')
+      () => location.reload()
     );
   }
 

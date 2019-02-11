@@ -6,21 +6,7 @@ import {UserService} from './user.service';
 
 @Component({
   selector: 'app-user-detail',
-  template: `
-    <div *ngIf="user">
-    <h2>User details</h2>
-    <ul class="list-group">
-      <li class="list-group-item">Email: {{ user.useremial }}</li>
-      <li class="list-group-item">Gender: {{ user.usergender }}</li>
-      <li class="list-group-item">Phone: {{ user.userphone }}</li>
-      <li class="list-group-item">Date of birth: {{ user.userbirth }}</li>
-      <td>
-        <button [routerLink]="['/user', user.usernumber]" class="btn btn-sample" style="margin-right: 10px">Edit</button>
-        <button (click)="EnableUser(user)" [disabled]="isEnable(user)" class="btn btn-sample">Enable</button>
-      </td>
-    </ul>
-  </div>
-	`
+  templateUrl: 'user-detail.component.html'
 })
 export class UserDetailComponent implements OnInit {
 

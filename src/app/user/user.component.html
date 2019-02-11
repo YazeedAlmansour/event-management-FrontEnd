@@ -1,17 +1,50 @@
 <app-navbar></app-navbar>
-<div class="row" style="padding: 20px" >
-  <div class="col-md-6">
-    <h2>Users List</h2>
-    <ul style="list-style-type:disc" *ngFor="let user of users$ " class="list-group-item" (click)="getUser(user)">
-    {{user.userid}} - {{user.userfname}} {{user.userlname}} - {{user.usernumber}}
-    </ul>
-  </div>
-
+<div class="container">
+  <h2 style="text-align: center">Users List</h2>
+  <table class="table table-hover table-striped">
+    <thead>
+    <tr class="table-pp">
+      <th scope="col">#</th>
+      <th scope="col">User ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let user of users$" (click)="getUser(user)">
+    <tr>
+      <th scope="row">{{user.usernumber}}</th>
+      <td>{{user.userid}}</td>
+      <td>{{user.userfname}} {{user.userlname}}</td>
+      <td>{{user.useremial}}</td>
+    </tr>
+    </tbody>
+  </table>
   <div class="col-md-6">
     <app-user-detail [user]="currentUser"></app-user-detail>
   </div>
 </div>
 <app-footer></app-footer>
+
+
+
+
+
+
+
+<!--<app-navbar></app-navbar>-->
+<!--<div class="row" style="padding: 20px" >-->
+  <!--<div class="col-md-6">-->
+    <!--<h2>Users List</h2>-->
+    <!--<ul style="list-style-type:disc" *ngFor="let user of users$ " class="list-group-item" (click)="getUser(user)">-->
+    <!--{{user.userid}} - {{user.userfname}} {{user.userlname}} - {{user.usernumber}}-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <!--<div class="col-md-6">-->
+    <!--<app-user-detail [user]="currentUser"></app-user-detail>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<app-footer></app-footer>-->
 
 
 

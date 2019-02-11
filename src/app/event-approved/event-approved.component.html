@@ -1,13 +1,24 @@
 <app-navbar></app-navbar>
 <div class="container">
-      <h2 style="text-align: center; padding: 30px">Events</h2>
+      <!--<h2 style="text-align: center; padding: 30px">Events</h2>-->
+      <div class="search-event">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search by name..." [(ngModel)]="searchTerm" />
+          <input type="text" class="form-control" style="border-color: #563f7b"
+                 placeholder="Search by name..." [(ngModel)]="searchTerm" />
         </div>
+        <div class="form-group">
+             <select class="form-control " [(ngModel)]="searchCity" style="border-color: #563f7b">
+               <option value="">All Cities</option>
+                  <option value="Riyadh">Riyadh</option>
+                  <option value="Jeddah">Jeddah</option>
+                  <option value="Duriyah">Duriyah</option>
+             </select>
+         </div>
+      </div>
       <div class="row">
-        <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of events$ | searchEvent:searchTerm" (click)="getEvent(event)">
+        <div class="col-lg-4 col-sm-6 portfolio-item" *ngFor="let event of events$ | searchEvent:searchTerm | filterCity:searchCity" (click)="getEvent(event)">
           <div class="card h-100">
-            <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="https://cdn1.imggmi.com/uploads/2019/1/24/8b8a20cb4220c99ad22a8e1fe93e663a-full.jpg" alt=""></a>
+            <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]"><img class="card-img-top" src="https://cdn1.imggmi.com/uploads/2019/1/31/cdf8d9a995327672e2c4e2a6cb816735-full.jpg" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <a (click)="getEvent(event)" [routerLink]="['/event/', event.eventnumber]">{{event.eventname}}</a>

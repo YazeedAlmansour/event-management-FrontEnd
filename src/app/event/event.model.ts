@@ -7,5 +7,6 @@ export class Events {
   public eventdate: string,
   public eventtime: string,
   public eventapproval: boolean,
+  public orgid: number,
   public counter: number) {}
 }
