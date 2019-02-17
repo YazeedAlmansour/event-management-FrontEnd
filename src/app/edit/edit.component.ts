@@ -59,7 +59,9 @@ export class EditComponent implements OnInit {
       if (res !== null && res !== undefined) {
         console.log(res);
       }
-    }, (error) => console.log(error), () => {});
+    }, (error) => console.log(error),
+      () => {    this.auth.logout(), this.router.navigate(['/login']);
+      });
   }
 
 
