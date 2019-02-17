@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-  error = '';
+  err ;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
           // this.router.navigateByUrl(this.returnUrl);
           this.router.navigate([this.returnUrl]);
         },
-        err => console.log(err),
+        err =>  this.err = err,
         () => console.log(this.authenticationService.getRole(), 'logged-in')
         );
   }

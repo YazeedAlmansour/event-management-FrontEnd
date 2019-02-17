@@ -21,6 +21,7 @@
         <div *ngIf="f.password.errors.required">Password is required</div>
       </div>
       <input type="submit" class="" value="Log In">
+      <div *ngIf=err style="color: red">{{err}}</div>
     </form>
 
     <!-- Remind Passowrd -->

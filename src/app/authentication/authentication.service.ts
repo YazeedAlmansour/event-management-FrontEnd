@@ -15,10 +15,10 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(userid: string, password: string) {
-    let headers = new HttpHeaders();
-    headers = headers.append('Authorization', 'Basic ' + btoa(`${userid}:${password}`));
+    // let headers = new HttpHeaders();
+    // headers = headers.append('Authorization', 'Basic ' + btoa(`${userid}:${password}`));
 
-    return this.http.get<any> ( '/userData', { headers: headers  })
+    return this.http.post<any> ( '/userData', { userid, password  })
       .pipe(map(user => {
         // login successful if there's a user in the response
         if (user) {
