@@ -11,8 +11,10 @@ import {AuthenticationService} from '../authentication/authentication.service';
 })
 export class EditComponent implements OnInit {
   myForm: FormGroup;
+  resetForm: FormGroup;
   usernumber: number;
   user$: User;
+  err;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,
               private route: ActivatedRoute, private router: Router, private auth: AuthenticationService) { }
@@ -22,12 +24,12 @@ export class EditComponent implements OnInit {
       this.usernumber = value.usernumber;
     });
 
-    if (this.usernumber != this.auth.getUserNumber()){
+    if (this.usernumber != this.auth.getUserNumber()) {
       this.router.navigate(['/myprofile']);
       alert('This is NOT your profile');
     }
 
-    this.userService.getUser(this.usernumber).subscribe((value0 => {
+    this.userService.getUpdateUser(this.usernumber).subscribe((value0 => {
       this.user$ = value0;
       this.myForm.patchValue(this.user$ as any);
     }));
@@ -38,20 +40,34 @@ export class EditComponent implements OnInit {
       useremial: ['', Validators.compose([Validators.required, Validators.email])],
       userfname: ['', Validators.required],
       userlname: ['', Validators.required],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.pattern(/^[a-zA-Z]/)])],
       userphone: ``,
       usergender: ``,
       userbirth: ``,
       role:  ``
     });
+
+    this.resetForm = this.formBuilder.group({
+      oldPassword: ['', Validators.required],
+      newPassword: ['', Validators.required]
+    });
   }
+
+  get f() { return this.resetForm.controls; }
 
   onSubmit() {
     this.userService.updateUser(this.usernumber, this.myForm).subscribe(res => {
       if (res !== null && res !== undefined) {
         console.log(res);
       }
-    }, (error) => console.log(error), () => {});
+    }, (error) => console.log(error), () => this.router.navigate(['/myprofile']));
+  }
+
+  resetPassword() {
+    this.userService.resetPassword(this.usernumber, this.f.oldPassword.value, this.f.newPassword.value).subscribe(res => {
+      if (res !== null && res !== undefined) {
+        console.log(res);
+      }
+    }, (error) => this.err = error, () => this.router.navigate(['/login']));
   }
 
   deleteUser() {

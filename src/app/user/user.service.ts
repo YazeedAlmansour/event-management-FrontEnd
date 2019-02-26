@@ -27,8 +27,16 @@ export class UserService {
     return this.http.get<User>(`api/user/` + `${usernumber}`);
   }
 
+  getUpdateUser(usernumber: number): Observable<User> {
+    return this.http.get<User>(`api/updateUser/` + `${usernumber}`);
+  }
+
   updateUser(usernumber: number, a): Observable<User> {
     return this.http.put<User>(`api/user/update/` + `${usernumber}`, JSON.stringify(a.value), API_ARGS);
+  }
+
+  resetPassword(usernumber: number, oldPassword: string, newPassword: string){
+    return this.http.post<any>(`api/resetPassword/` + `${usernumber}`, {oldPassword, newPassword});
   }
 
   deleteUser(usernumber: number): Observable<User> {

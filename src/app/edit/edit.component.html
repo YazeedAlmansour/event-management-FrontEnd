@@ -31,12 +31,6 @@
              formControlName="useremial">
     </div>
 
-    <div class="form-group">
-      <label for="inputPassword">Password</label>
-      <input type="password" class="form-control"
-             formControlName="password"
-             id="inputPassword" placeholder="Password" name="password">
-    </div>
 
     <div class="form-group">
       <label for="selectGender">Gander</label>
@@ -69,5 +63,35 @@
     <button type="submit" class="btn btn-danger"
             (click)="deleteUser()">Delete</button>
   </form>
+
+  <h2 style="margin-top: 50px">Reset password</h2>
+  <form novalidate [formGroup]="resetForm">
+    <div class="form-group">
+      <label for="inputOldPassword">Current Password</label>
+      <input type="password" class="form-control"
+             formControlName="oldPassword"
+             id="inputOldPassword" placeholder="Current Password" name="oldPassword">
+      <!--<div *ngIf="myForm.controls.password.invalid && myForm.controls.password.dirty" style="color: red"-->
+      <!--&gt;Password must be betwwen 8 and 15 digits</div>-->
+      <!--<div *ngIf="myForm.controls.password.valid && myForm.controls.password.dirty" style="color: green">Success</div>-->
+    </div>
+
+    <div class="form-group">
+      <label for="inputNewPassword">New Password</label>
+      <input type="password" class="form-control"
+             formControlName="newPassword"
+             id="inputNewPassword" placeholder="New Password" name="newPassword">
+      <!--<div *ngIf="myForm.controls.password.invalid && myForm.controls.password.dirty" style="color: red"-->
+      <!--&gt;Password must be betwwen 8 and 15 digits</div>-->
+      <!--<div *ngIf="myForm.controls.password.valid && myForm.controls.password.dirty" style="color: green">Success</div>-->
+    </div>
+
+
+    <button type="submit" class="btn btn-sample"
+            (click)="resetPassword()" style="margin-right: 10px">Submit</button>
+    <div *ngIf=err style="color: red">{{err}}</div>
+
+  </form>
 </div>
+
 <app-footer></app-footer>
